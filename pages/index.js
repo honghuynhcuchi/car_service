@@ -12,12 +12,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <div class="form">
-          <input type="text" id="form12" class="form-control" placeholder=""/>
-          <label class="form-label" for="form12">
-            Example label
-          </label>
-        </div>
+      
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
