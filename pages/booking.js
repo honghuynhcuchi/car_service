@@ -1,6 +1,55 @@
+import { useState } from "react";
 import { Row, Col, Form } from "react-bootstrap";
 import styles from "../styles/Booking.module.css";
+import axios from "axios";
 const Booking = () => {
+  const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  const handleSendMail = (e) => {
+    e.preventDefault();
+    setErrorMessage(null);
+    setSuccessMessage(null);
+    setLoading(true);
+    const keys = [
+      "fullname",
+      "phone",
+      "car-type",
+      "km-number",
+      "license-plate",
+      "service-type",
+      "date-go",
+      "time-go",
+    ];
+    let data = { type: "booking" };
+    keys.forEach((key) => {
+      data = {
+        ...data,
+        [key]: e.target[key].value,
+      };
+    });
+    axios
+      .request({
+        method: "POST",
+        data: data,
+        url: "/api/send-mail",
+        
+      })
+      .then((res) => {
+        let data = res.data;
+        setSuccessMessage("Đặt lịch hẹn thành công, chúng tôi sẽ sớm liên hệ lại với bạn");
+        e.target.reset();
+      })
+      .catch((err) => {
+        console.log(err);
+        setErrorMessage("Đã có lỗi trong quá trình đặt cuộc hẹn, vui lòng thử lại");
+      })
+      .finally(() => {
+        setLoading(false);
+      })
+  };
+
   return (
     <div
       style={{
@@ -25,7 +74,7 @@ const Booking = () => {
               tôi
             </p>
             <br />
-            <Form onSubmit={(e) => {e.preventDefault(); console.log("haha")}}>
+            <Form onSubmit={handleSendMail}>
               <div className={styles["row-input"]}>
                 <label htmlFor="fullname" className={styles["label"]}>
                   Họ {"&"} Tên <span className={styles["require"]}>*</span>
@@ -102,7 +151,7 @@ const Booking = () => {
               </div>
 
               <div className={styles["row-input"]}>
-                <label htmlFor="license-plate" className={styles["label"]}>
+                <label htmlFor="service-type" className={styles["label"]}>
                   Loại dịch vụ<span className={styles["require"]}>*</span>
                 </label>
                 <div className={styles["select-wrapper"]}>
@@ -134,7 +183,7 @@ const Booking = () => {
               </div>
               <div className={styles["row-input"]}>
                 <label htmlFor="time-go" className={styles["label"]}>
-                  Loại dịch vụ<span className={styles["require"]}>*</span>
+                  Vào lúc<span className={styles["require"]}>*</span>
                 </label>
                 <div className={styles["select-wrapper"]}>
                   <select id="time-go" name="time-go">
@@ -147,10 +196,20 @@ const Booking = () => {
                   </select>
                 </div>
               </div>
-
+              {successMessage && <p style={{textAlign:"center", color:"green", fontWeight:"bold"}}>{successMessage}</p>}
+              {errorMessage && <p style={{textAlign:"center", color:"red"}}>{errorMessage}</p>}
               <div className={styles["action-wrapper"]}>
-                <button type="submit" className="primary-button w-50">
-                  Đặt Lịch Hẹn
+                <button
+                  type="submit"
+                  className="primary-button w-sm-100 w-md-50"
+                  disabled={loading}
+                >
+                  {loading === true && (
+                    <div class="spinner-border text-light" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  )}
+                  {loading === false && "Đặt Lịch Hẹn"}
                 </button>
               </div>
             </Form>
