@@ -12,13 +12,13 @@ const Footer = () => {
           </Col>
           <Col md={2} className={styles['footer-section']}>
             <div className={styles["content-wrapper"]}>
-              <a href="#">
+              <a href="/">
                 <h5 className={styles["content"]}>Giới thiệu</h5>
               </a>
-              <a href="#">
+              <a href="/booking">
                 <h5 className={styles["content"]}>Đặt lịch hẹn</h5>
               </a>
-              <a href="#">
+              <a href="/business">
                 <h5 className={styles["content"]}>Quy trình dịch vụ</h5>
               </a>
             </div>

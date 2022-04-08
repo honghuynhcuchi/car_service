@@ -20,22 +20,24 @@
     margin-bottom: 25px;
 }
 
-.row-input .input-wrapper , .row-input .select-wrapper {
+.row-input .input-wrapper,
+.row-input .select-wrapper {
     flex-grow: 1;
 
 }
 
-.row-input .label{
+.row-input .label {
     font-weight: bold;
     color: #676767;
 }
 
-.row-input .label .require{
-    
+.row-input .label .require {
+
     color: red;
 }
 
-.row-input .input-wrapper input, .row-input .select-wrapper select {
+.row-input .input-wrapper input,
+.row-input .select-wrapper select {
     width: 100%;
     padding: 7px 10px;
     outline: none;
@@ -45,29 +47,46 @@
 }
 
 
-.row-input .input-wrapper input::-webkit-input-placeholder{
-    opacity: 0.7;
-}
-.row-input .input-wrapper input::-ms-input-placeholder{
-    opacity: 0.7;
-}
-.row-input .input-wrapper input::placeholder{
+.row-input .input-wrapper input::-webkit-input-placeholder {
     opacity: 0.7;
 }
 
-.action-wrapper{
+.row-input .input-wrapper input::-ms-input-placeholder {
+    opacity: 0.7;
+}
+
+.row-input .input-wrapper input::placeholder {
+    opacity: 0.7;
+}
+
+.action-wrapper {
     display: flex;
     justify-content: center;
 }
+.action-wrapper button {
+
+    width: 50%;
+
+}
 
 
-@media screen and (max-width: 768px){
-    .row-input{
+@media screen and (max-width: 768px) {
+    .row-input {
         flex-direction: column;
         align-items: flex-start;
         row-gap: 5px;
     }
-    .row-input .input-wrapper, .row-input .select-wrapper{
+
+    .row-input .input-wrapper,
+    .row-input .select-wrapper {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .action-wrapper button {
+
+        width: 100%;
+
     }
 }
