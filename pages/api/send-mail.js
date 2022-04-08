@@ -26,7 +26,7 @@ const handle = async (req,res) => {
             return res.status(200).json({message:"ok"});
         })
         .catch((err)=>{
-            return res.status(500).json({message:"Đã xảy ra lỗi khi gửi mail"})
+            return res.status(500).json({message:err.message})
         })
     }
     
