@@ -1,0 +1,73 @@
+.form-wrapper {
+
+    min-height: 300px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 20px 40px;
+}
+
+.form-wrapper .form-title,
+.form-wrapper .form-description {
+    text-align: center;
+    color: #1f2674;
+}
+
+.row-input {
+    display: flex;
+    column-gap: 15px;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.row-input .input-wrapper , .row-input .select-wrapper {
+    flex-grow: 1;
+
+}
+
+.row-input .label{
+    font-weight: bold;
+    color: #676767;
+}
+
+.row-input .label .require{
+    
+    color: red;
+}
+
+.row-input .input-wrapper input, .row-input .select-wrapper select {
+    width: 100%;
+    padding: 7px 10px;
+    outline: none;
+    border: 1px solid #e4dcd3;
+    font-size: 0.875rem;
+    color: #676767;
+}
+
+
+.row-input .input-wrapper input::-webkit-input-placeholder{
+    opacity: 0.7;
+}
+.row-input .input-wrapper input::-ms-input-placeholder{
+    opacity: 0.7;
+}
+.row-input .input-wrapper input::placeholder{
+    opacity: 0.7;
+}
+
+.action-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+
+@media screen and (max-width: 768px){
+    .row-input{
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 5px;
+    }
+    .row-input .input-wrapper, .row-input .select-wrapper{
+        width: 100%;
+    }
+}
