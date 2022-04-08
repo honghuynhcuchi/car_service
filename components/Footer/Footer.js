@@ -1,4 +1,5 @@
 import { Row, Col } from "react-bootstrap";
+import Link from "next/link";
 import styles from "./Footer.module.css";
 const Footer = () => {
   return (
@@ -12,15 +13,21 @@ const Footer = () => {
           </Col>
           <Col md={2} className={styles['footer-section']}>
             <div className={styles["content-wrapper"]}>
-              <a href="/">
+              <Link href="/">
+              <a>
                 <h5 className={styles["content"]}>Giới thiệu</h5>
               </a>
-              <a href="/booking">
+              </Link>
+              <Link href="/booking">
+              <a >
                 <h5 className={styles["content"]}>Đặt lịch hẹn</h5>
               </a>
-              <a href="/business">
+              </Link>
+              <Link href="/business">
+              <a >
                 <h5 className={styles["content"]}>Quy trình dịch vụ</h5>
               </a>
+              </Link>
             </div>
           </Col>
           <Col md={8} className={styles['footer-section']}>
