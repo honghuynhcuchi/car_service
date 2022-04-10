@@ -64,3 +64,25 @@ a {
 .primary-button:hover{
   background-color: rgb(31, 38, 116,1.0);
 }
+
+.flex-col{
+  display: flex;
+  flex-direction: column;
+}
+.flex-col.row-center{
+  align-items: center;
+}
+.flex-col.col-center{
+  justify-content: center;
+}
+
+
+.flex-row{
+  display: flex;
+}
+.flex-row.row-center{
+  justify-content: center;
+}
+.flex-row.col-center{
+  align-items: center;
+}

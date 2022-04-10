@@ -3,7 +3,8 @@ import styles from "./Header.module.css";
 
 import { useRouter } from "next/router";
 
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
+import Link from "next/link";
 
 const links = [
   {
@@ -32,9 +33,13 @@ const Header = () => {
   return (
     <div className={styles["header"]}>
       <div className={styles["left"]}>
-        <div className={styles["logo-container"]}>
-          <img src="/images/logo.png" />
-        </div>
+        <Link href={"/"}>
+          <a>
+            <div className={styles["logo-container"]}>
+              <img src="/images/logo.png" />
+            </div>
+          </a>
+        </Link>
         <div className={styles["label-wrapper"]}>
           <h5 className={styles["label"]}>
             CHUYỂN ĐỔI SỐ TRONG QUẢN LÝ DỊCH VỤ Ô TÔ

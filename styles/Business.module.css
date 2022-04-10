@@ -1,0 +1,86 @@
+.image-container {
+    margin-bottom: 32px;
+}
+
+.image-container img {
+    width: 100%;
+}
+
+.collapse-item-container {
+    margin-bottom: 16px;
+}
+
+.collapse-open-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: #E8E8EA;
+    color: #0176AB;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+
+  
+ 
+}
+
+
+
+.collapse-open-item .arrow {
+    color: #0176AB;
+    transition: all 0.15s ease;
+    transform: rotate(0deg);
+}
+.collapse-open-item .arrow.open {
+ 
+    transform: rotate(90deg);
+}
+
+.collapse-content-item {
+    padding: 10px 15px;
+    display: none;
+    transition: all 0.15s ease;
+
+}
+.collapse-content-item *{
+ 
+    
+}
+
+.collapse-content-item.open{
+    display: block;
+
+}
+.collapse-content-item.open *{
+  
+    visibility: visible;
+}
+
+.collapse-content-item .first-content {
+    padding: 0px 0px;
+    padding-left: 15px;
+    list-style: none;
+   
+
+}
+
+.collapse-content-item .first-content>li::before {
+    content: "–";
+    /* en dash */
+    position: absolute;
+    margin-left: -1.1em;
+}
+
+.collapse-content-item .second-content {
+    
+    list-style: none;
+
+}
+
+.collapse-content-item .second-content>li::before {
+    content: "+";
+    /* en dash */
+    position: absolute;
+    margin-left: -1.1em;
+}
