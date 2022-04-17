@@ -30,6 +30,11 @@ const Footer = () => {
                   <h5 className={styles["content"]}>Quy trình dịch vụ</h5>
                 </a>
               </Link>
+              <Link href="/car-parts">
+                <a>
+                  <h5 className={styles["content"]}>Bảng giá phụ tùng</h5>
+                </a>
+              </Link>
             </div>
           </Col>
           <Col md={8} className={styles["footer-section"]}>

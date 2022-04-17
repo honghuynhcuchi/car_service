@@ -19,6 +19,10 @@ const links = [
     url: "/business",
     title: "QUY TRÌNH DỊCH VỤ",
   },
+  {
+    url:"/car-parts",
+    title:"BẢNG GIÁ PHỤ TÙNG"
+  }
 ];
 
 const Header = () => {
