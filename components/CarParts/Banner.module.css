@@ -1,0 +1,23 @@
+.banner{
+    width: 100%;
+    background-color: #E8E8EA;
+    padding: 10px 20px;
+    border-radius: 5px;
+    position: relative;
+    
+}
+.banner:before{
+    display: block;
+    position: absolute;
+    content:"";
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    background-color: #0176AB;
+}
+.title{
+    color: #0176AB;
+    font-weight: bold;
+    margin-block: 0;
+}
