@@ -2,7 +2,9 @@ import { Fragment, useState } from "react";
 import { Row, Col, Form } from "react-bootstrap";
 import styles from "../styles/Booking.module.css";
 import axios from "axios";
+import emailjs from '@emailjs/browser';
 import Head from "next/head";
+import moment from "moment";
 const Booking = () => {
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState(null);
@@ -10,48 +12,67 @@ const Booking = () => {
 
   const handleSendMail = (e) => {
     e.preventDefault();
+    console.log(e.target);
     setErrorMessage(null);
     setSuccessMessage(null);
     setLoading(true);
     const keys = [
       "fullname",
       "phone",
-      "car-type",
-      "km-number",
-      "license-plate",
-      "service-type",
-      "date-go",
-      "time-go",
+      "car_type",
+      "km_number",
+      "license_plate",
+      "service_type",
+      "date_go",
+      "time_go",
     ];
     let data = { type: "booking" };
     keys.forEach((key) => {
       data = {
         ...data,
         [key]: e.target[key].value,
+        createdAt : moment(new Date()).format("LT - DD/MM/YYYY"),
+
       };
     });
-    axios
-      .request({
-        method: "POST",
-        data: data,
-        url: "/api/send-mail",
-      })
-      .then((res) => {
-        let data = res.data;
+    emailjs.send('service_2tda4yl', 'template_v53sz21', data,"oDoZjc3NiW0430V_E")
+      .then((result) => {
+       
         setSuccessMessage(
           "Đặt lịch hẹn thành công, chúng tôi sẽ sớm liên hệ lại với bạn"
         );
         e.target.reset();
-      })
-      .catch((err) => {
+      }, (err) => {
         console.log(err);
         setErrorMessage(
           "Đã có lỗi trong quá trình đặt cuộc hẹn, vui lòng thử lại"
         );
       })
-      .finally(() => {
+      .finally(()=>{
         setLoading(false);
       });
+    // axios
+    //   .request({
+    //     method: "POST",
+    //     data: data,
+    //     url: "/api/send-mail",
+    //   })
+    //   .then((res) => {
+    //     let data = res.data;
+    //     setSuccessMessage(
+    //       "Đặt lịch hẹn thành công, chúng tôi sẽ sớm liên hệ lại với bạn"
+    //     );
+    //     e.target.reset();
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //     setErrorMessage(
+    //       "Đã có lỗi trong quá trình đặt cuộc hẹn, vui lòng thử lại"
+    //     );
+    //   })
+    //   .finally(() => {
+    //     setLoading(false);
+    //   });
   };
 
   return (
@@ -115,13 +136,13 @@ const Booking = () => {
                 </div>
 
                 <div className={styles["row-input"]}>
-                  <label htmlFor="car-type" className={styles["label"]}>
+                  <label htmlFor="car_type" className={styles["label"]}>
                     Loại xe <span className={styles["require"]}>*</span>
                   </label>
                   <div className={styles["input-wrapper"]}>
                     <input
-                      id="car-type"
-                      name="car-type"
+                      id="car_type"
+                      name="car_type"
                       required
                       type={"text"}
                       placeholder="VD: Hyundai accent"
@@ -130,13 +151,13 @@ const Booking = () => {
                 </div>
 
                 <div className={styles["row-input"]}>
-                  <label htmlFor="km-number" className={styles["label"]}>
+                  <label htmlFor="km_number" className={styles["label"]}>
                     Số Km <span className={styles["require"]}>*</span>
                   </label>
                   <div className={styles["input-wrapper"]}>
                     <input
-                      id="km-number"
-                      name="km-number"
+                      id="km_number"
+                      name="km_number"
                       required
                       type={"text"}
                       placeholder="VD: 123"
@@ -145,13 +166,13 @@ const Booking = () => {
                 </div>
 
                 <div className={styles["row-input"]}>
-                  <label htmlFor="license-plate" className={styles["label"]}>
+                  <label htmlFor="license_plate" className={styles["label"]}>
                     Biển kiểm soát<span className={styles["require"]}>*</span>
                   </label>
                   <div className={styles["input-wrapper"]}>
                     <input
-                      id="license-plate"
-                      name="license-plate"
+                      id="license_plate"
+                      name="license_plate"
                       required
                       type={"text"}
                       placeholder="VD: 80-LA 0504"
@@ -160,11 +181,11 @@ const Booking = () => {
                 </div>
 
                 <div className={styles["row-input"]}>
-                  <label htmlFor="service-type" className={styles["label"]}>
+                  <label htmlFor="service_type" className={styles["label"]}>
                     Loại dịch vụ<span className={styles["require"]}>*</span>
                   </label>
                   <div className={styles["select-wrapper"]}>
-                    <select id="service-type" name="service-type">
+                    <select id="service_type" name="service_type">
                       <option value="Sửa chữa">Sửa chữa</option>
                       <option value="Bảo dưỡng">Bảo dưỡng</option>
                       <option value="Bảo hành">Bảo hành</option>
@@ -177,13 +198,13 @@ const Booking = () => {
                 </p>
 
                 <div className={styles["row-input"]}>
-                  <label htmlFor="date-go" className={styles["label"]}>
+                  <label htmlFor="date_go" className={styles["label"]}>
                     Ngày/tháng/năm<span className={styles["require"]}>*</span>
                   </label>
                   <div className={styles["input-wrapper"]}>
                     <input
-                      id="date-go"
-                      name="date-go"
+                      id="date_go"
+                      name="date_go"
                       required
                       placeholder="dd/mm/yyyy"
                       pattern="\d{1,2}/\d{1,2}/\d{4}"
@@ -191,11 +212,11 @@ const Booking = () => {
                   </div>
                 </div>
                 <div className={styles["row-input"]}>
-                  <label htmlFor="time-go" className={styles["label"]}>
+                  <label htmlFor="time_go" className={styles["label"]}>
                     Vào lúc<span className={styles["require"]}>*</span>
                   </label>
                   <div className={styles["select-wrapper"]}>
-                    <select id="time-go" name="time-go">
+                    <select id="time_go" name="time_go">
                       <option value="8:00 - 9:00">8:00 - 9:00</option>
                       <option value="9:00 - 10:00">9:00 - 10:00</option>
                       <option value="10:00 - 11:00">10:00 - 11:00</option>
