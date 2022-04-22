@@ -22,6 +22,10 @@ const links = [
   {
     url:"/car-parts",
     title:"BẢNG GIÁ PHỤ TÙNG"
+  },
+  {
+    url:"/price-maintain",
+    title:"BẢNG GIÁ BẢO DƯỠNG"
   }
 ];
 

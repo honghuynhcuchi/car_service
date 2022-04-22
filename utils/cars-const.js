@@ -37,8 +37,8 @@ const CAR_DATA = [
         image:KONA,
     },
     {
-        _id:"PORTER 150",
-        name:"PORTER 150",
+        _id:"PORTER",
+        name:"PORTER",
         image:PORTER150,
     },
     {
