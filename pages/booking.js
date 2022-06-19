@@ -193,7 +193,7 @@ const Booking = () => {
                     </select>
                   </div>
                 </div>
-                <p style={{ color: "#1f2674", fontWeight: "bold" }}>
+                <p style={{ color: "#FFFFFF", fontWeight: "bold" }}>
                   Thời gian quý khách dự kiến đến cửa hàng:
                 </p>
 
