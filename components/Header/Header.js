@@ -51,10 +51,20 @@ const CustomNavBar = styled(Navbar)`
     }
     .nav-link.active{
       text-decoration: underline;
+    }
+    .navbar-nav{
+      padding: 0px 0px;
+      justify-content: center;
+      font-size: 16px;
+      column-gap: 20px;
+    }  
   }
-    
-    
-    
+
+  .navbar-nav{
+    padding: 0px 180px;
+    justify-content: space-between;
+    width: 100%;
+    font-size:18px;
   }
 
   @media screen and (max-width:768px){
@@ -66,6 +76,16 @@ const CustomNavBar = styled(Navbar)`
   @media screen and (max-width:992px){
     .nav-item{
       font-size: 14px !important;
+    }
+    .navbar-nav{
+      padding: 0px;
+      font-size: 14px;
+    }
+    &.fixed-navbar{
+      .navbar-nav{
+        font-size: 14px;
+        column-gap: 0px;
+      }
     }
   }
   
@@ -102,13 +122,13 @@ const Header = () => {
               </Link>
             </div>
             <div className="label">
-              CHUYỂN ĐỔI SỐ TRONG QUẢN LÝ DỊCH VỤ Ô TÔ
+              XÂY DỰNG WED CHO HÃNG HYUNDAI TRONG THỜI ĐẠI 4.0
             </div>
           </div>
           <CustomNavBar expand="md" className={`${isFarHeader === true ? "fixed-navbar" : ""}`}>
             <Navbar.Toggle aria-controls="basic-navbar-nav" style={{ backgroundColor: "#FFFFFF" }} />
             <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="d-flex w-100 justify-content-center" style={{fontSize:"16px"}}>
+              <Nav className="d-flex">
                 <Nav.Link href="/">GIỚI THIỆU</Nav.Link>
                 <Nav.Link href="/booking">ĐẶT LỊCH HẸN</Nav.Link>
                 <NavDropdown title="DỊCH VỤ" id="dichvu-nav-dropdown">
