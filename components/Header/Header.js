@@ -122,7 +122,7 @@ const Header = () => {
               </Link>
             </div>
             <div className="label">
-              XÂY DỰNG WED CHO HÃNG HYUNDAI TRONG THỜI ĐẠI 4.0
+              XÂY DỰNG WEB CHO HÃNG HYUNDAI TRONG THỜI ĐẠI 4.0
             </div>
           </div>
           <CustomNavBar expand="md" className={`${isFarHeader === true ? "fixed-navbar" : ""}`}>
