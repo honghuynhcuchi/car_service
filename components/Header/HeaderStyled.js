@@ -26,6 +26,7 @@ export const HeaderStyled = styled.div`
         .top-header{
             display: flex;
             justify-content: space-between;
+            column-gap: 10px;
             align-items: center;
             margin-top: 10px;
             .logo{
@@ -72,6 +73,9 @@ export const HeaderStyled = styled.div`
         min-height: 130px;
         .header-content{
             min-height: 130px;
+            .label{
+                font-size: 14px;
+            }
         }
     }
 
